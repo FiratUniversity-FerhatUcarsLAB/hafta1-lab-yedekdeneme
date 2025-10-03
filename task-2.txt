@@ -1,4 +1,95 @@
-Öğrenci No:
-AD-SOYAD:
+Öğrenci No: 241137209
+AD-SOYAD: Ömer Miraç KÖKÇAM
 
 Lütfen seçtiğiniz algoritmaya ait çözümü ve diğer isterleri aşağıya ekleyiniz:
+
+
+ALGORITMA KahveDemle
+
+// Gerekli malzemeler ve hedef değerler
+VAR kahveGramaj = 18          // gram
+VAR suMiktari = 300           // ml
+VAR idealSicaklik = 92        // derece Celsius
+VAR toplamDemlemeSuresi = 180 // saniye
+VAR suSicakligi
+VAR zamanlayici = 0
+
+// 1. Malzeme kontrolü
+FONKSIYON MalzemeKontrolEt():
+    IF kahveGramaj < 18 THEN
+        YAZ "Yeterli kahve yok!"
+        DUR
+    ENDIF
+    IF suMiktari < 300 THEN
+        YAZ "Yeterli su yok!"
+        DUR
+    ENDIF
+    YAZ "Malzemeler hazır."
+
+// 2. Su ısıt
+FONKSIYON SuIsit():
+    suSicakligi ← ÖLÇ(su)
+    WHILE suSicakligi < idealSicaklik DO
+        suSicakligi ← suSicakligi + 1 // Su ısıtılıyor
+        BEKLE(1)                      // 1 saniye bekle
+    ENDWHILE
+    YAZ "Su ideal sıcaklıkta."
+
+// 3. Kahveyi öğüt
+FONKSIYON KahveOgut():
+    YAZ "Kahve orta kalınlıkta öğütülüyor..."
+    BEKLE(5)
+    YAZ "Kahve öğütme tamamlandı."
+
+// 4. Filtreyi ıslat
+FONKSIYON FiltreIslat():
+    YAZ "Filtre kağıdı ıslatılıyor..."
+    BEKLE(2)
+    YAZ "Filtre hazır."
+
+// 5. Blooming işlemi (ön demleme)
+FONKSIYON Blooming():
+    DÖK(30 ml su, 0-30 saniye arası)
+    BEKLE(30)
+    YAZ "Blooming tamamlandı."
+
+// 6. Ana demleme
+FONKSIYON DemlemeYap():
+    kalanSu ← suMiktari - 30
+    ARALIKLAR ← 3
+    miktarHerAralik ← kalanSu / ARALIKLAR
+
+    FOR i FROM 1 TO ARALIKLAR DO
+        DÖK(miktarHerAralik ml su, 10 saniyede)
+        BEKLE(30) // Kahvenin süzülmesi için bekle
+    ENDFOR
+    YAZ "Demleme tamamlandı."
+
+// 7. Süre kontrolü
+FONKSIYON SureKontrolEt():
+    IF zamanlayici > toplamDemlemeSuresi THEN
+        YAZ "Demleme süresi aşıldı! Tat değişebilir."
+    ELSE
+        YAZ "Demleme süresi uygun."
+    ENDIF
+
+// 8. Kahveyi servis et
+FONKSIYON ServisEt():
+    YAZ "Kahve bardağa dökülüyor..."
+    BEKLE(2)
+    YAZ "Afiyet olsun! ☕"
+
+/////////////////////////////////////////////////////////
+
+// Ana akış
+MalzemeKontrolEt()
+SuIsit()
+KahveOgut()
+FiltreIslat()
+Blooming()
+DemlemeYap()
+SureKontrolEt()
+ServisEt()
+
+SON ALGORITMA
+
