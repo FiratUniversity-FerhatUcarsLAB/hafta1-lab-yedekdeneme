@@ -1,4 +1,94 @@
-Öğrenci No:
-AD-SOYAD:
+Öğrenci No: 241137209
+AD-SOYAD: Ömer Miraç KÖKÇAM
 Lütfen seçtiğiniz algoritmaya ait çözümü ve diğer isterleri aşağıya ekleyiniz:
-Deneme çözüm
+Seçtiğim Algoritma "Mükemmel Omlet Yapma Algoritması"
+
+ALGORİTMA Mükemmel_Omlet_Yap
+
+BAŞLA
+
+  // 1. Malzemeleri Hazırla
+  Yumurta_Sayisi ← 2
+  Süt_Miktari_ml ← 30
+  Tuz_Eklendi ← FALSE
+  Malzemeler_Taze ← TRUE
+
+  // 2. Malzeme kontrolü
+  EĞER Malzemeler_Taze DEĞİLSE
+    YAZ "Taze malzeme yok. Devam edilemez."
+    DUR
+  SON
+
+  // 3. Yumurtaları kır
+  Kırılan_Yumurta ← 0
+  İKEN Kırılan_Yumurta < Yumurta_Sayisi YAP
+    YAZ "1 yumurta kırıldı."
+    Kırılan_Yumurta ← Kırılan_Yumurta + 1
+  SON
+
+  // 4. Süt ekle
+  YAZ Süt_Miktari_ml & " ml süt eklendi."
+
+  // 5. Tuz ekle
+  TUZ_EKLE:
+  EĞER Tuz_Eklendi = FALSE İSE
+    YAZ "Bir tutam tuz eklendi."
+    Tuz_Eklendi ← TRUE
+  DEĞİLSE
+    YAZ "Tuz zaten eklendi. Tekrar ekleme!"
+  SON
+
+  // 6. Çırpma işlemi
+  Çırpma_Süresi_s ← 30
+  Saniye ← 0
+
+  YAZ "Karışım çırpılıyor..."
+  İKEN Saniye < Çırpma_Süresi_s YAP
+    BEKLE 1 saniye
+    Saniye ← Saniye + 1
+  SON
+  YAZ "Karışım çırpma tamamlandı."
+
+  // 7. Tavayı ısıt
+  Tava_Sıcaklığı ← 0
+  HEDEF_Sıcaklık ← 180
+
+  YAZ "Tava ısıtılıyor..."
+  İKEN Tava_Sıcaklığı < HEDEF_Sıcaklık YAP
+    Tava_Sıcaklığı ← Tava_Sıcaklığı + 20
+    BEKLE 1 saniye
+    YAZ "Tava sıcaklığı: " & Tava_Sıcaklığı
+  SON
+
+  YAZ "Tava yeterince sıcak."
+
+  // 8. Karışımı dök
+  YAZ "Karışım tavaya döküldü."
+
+  // 9. Pişirme
+  Alt_Kısmı_Pişti ← FALSE
+  Üst_Kısmı_Pişti ← FALSE
+  Zaman ← 0
+
+  İKEN Alt_Kısmı_Pişti = FALSE VEYA Üst_Kısmı_Pişti = FALSE YAP
+    BEKLE 1 saniye
+    Zaman ← Zaman + 1
+
+    EĞER Zaman = 3 İSE
+      Alt_Kısmı_Pişti ← TRUE
+      YAZ "Alt kısmı pişti."
+    SON
+
+    EĞER Zaman = 6 İSE
+      Üst_Kısmı_Pişti ← TRUE
+      YAZ "Üst kısmı pişti."
+    SON
+  SON
+
+  // 10. Omleti katla ve servis et
+  YAZ "Omlet katlandı."
+  YAZ "Servis tabağına alındı."
+  YAZ "Afiyet olsun!"
+
+BİTİR
+
