@@ -1,4 +1,50 @@
-Öğrenci No:
-AD-SOYAD:
+Öğrenci No: 241137209
+AD-SOYAD: Ömer Miraç KÖKÇAM
 
 Lütfen seçtiğiniz algoritmaya ait çözümü ve diğer isterleri aşağıya ekleyiniz:
+
+
+Algoritma CayDemle()
+    // 1. Su miktarını belirle
+    su_miktari <- KullanıcıdanAl("Ne kadar su kullanılacak? (ml)")
+
+    // 2. Su kaynatıcıya su ekle
+    SuKaynatıcıyaSuEkle(su_miktari)
+
+    // 3. Su kaynatıcının açık olduğunu kontrol et
+    if SuKaynatıcıDurumu() == "Kapalı" then
+        SuKaynatıcıAc()
+    end if
+
+    // 4. Su kaynamaya başla ve bitmesini bekle
+    while SuKaynatıcıDurumu() != "Kaynamış" do
+        Bekle(1 saniye)
+    end while
+
+    // 5. Çaydanlığa kaynamış sudan belirli miktarda koy
+    caydanlik_su_miktari <- KullanıcıdanAl("Çaydanlığa kaç ml kaynamış su koyulsun?")
+    CaydanligaSuEkle(caydanlik_su_miktari)
+
+    // 6. Çaydanlığa çay koy
+    cay_miktari <- KullanıcıdanAl("Kaç gram çay konacak?")
+    CaydanligaCayEkle(cay_miktari)
+
+    // 7. Demleme süresini belirle
+    demleme_suresi <- KullanıcıdanAl("Kaç dakika demlenecek?")
+
+    // 8. Demlemeyi başlat
+    DemlemeyeBasla()
+
+    // 9. Demleme süresi boyunca bekle
+    Bekle(demleme_suresi dakika)
+
+    // 10. Demleme bitti mi kontrol et
+    if DemlemeBittiMi() == true then
+        // Çayı servis et
+        CayiServisEt()
+        Yazdir("Çay hazır, afiyet olsun!")
+    else
+        Yazdir("Demleme henüz bitmedi, lütfen bekleyin.")
+    end if
+end algoritma
+
